@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>My Calculator</h1>
+    <input type="number" name="number" id="FirstNumber" placeholder="First number" autofocus><br />
+    <input type="number" name="number" id="SecondNumber" placeholder="Second number" autofocus><br />
+    <button onclick="CalcPlus()">+</button>
+    <button onclick="CalcMinus()">-</button>
+    <button onclick="CalcDif()">/</button>
+    <button onclick="CalcMult()">*</button>
+    <button onclick="Reset()">C</button>
+    <div class="data"></div>
+
+    <script>
+        let data = document.querySelector('.data');
+
+        function Reset() {
+            data.innerHTML = '';
+        }
+
+        function CalcPlus() {
+            let a = document.querySelector('#FirstNumber').value;
+            let b = document.querySelector('#SecondNumber').value;
+            document.querySelector('#FirstNumber').value = "";
+            document.querySelector('#SecondNumber').value = "";
+            if (b != '') {
+                let result = Number(a) + Number(b);
+                data.innerHTML = 'Ваш ответ: ' + result;
+            } else {
+                data.innerHTML = 'Введи второе число!';
+            }
+        }
+
+        function CalcMinus() {
+            let a = document.querySelector('#FirstNumber').value;
+            let b = document.querySelector('#SecondNumber').value;
+            document.querySelector('#FirstNumber').value = "";
+            document.querySelector('#SecondNumber').value = "";
+            if (b != '') {
+                let result = Number(a) - Number(b);
+                data.innerHTML = 'Ваш ответ: ' + result;
+            } else {
+                data.innerHTML = 'Введи второе число!';
+            }
+        }
+
+        function CalcDif() {
+            let a = document.querySelector('#FirstNumber').value;
+            let b = document.querySelector('#SecondNumber').value;
+            document.querySelector('#FirstNumber').value = "";
+            document.querySelector('#SecondNumber').value = "";
+            if (b != '' && b != 0) {
+                let result = Number(a) / Number(b);
+                data.innerHTML = 'Ваш ответ: ' + result;
+            } else if (b != '' && b == 0) {
+                data.innerHTML = 'Ах ты проказник! На ноль делить нельзя, тебя мама не учила?';
+            } else {
+                data.innerHTML = 'Введи второе число!';
+            }
+        }
+
+        function CalcMult() {
+            let a = document.querySelector('#FirstNumber').value;
+            let b = document.querySelector('#SecondNumber').value;
+            document.querySelector('#FirstNumber').value = "";
+            document.querySelector('#SecondNumber').value = "";
+            if (b != '') {
+                let result = Number(a) * Number(b);
+                data.innerHTML = 'Ваш ответ: ' + result;
+            } else {
+                data.innerHTML = 'Введи второе число!';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
